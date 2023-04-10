@@ -1,4 +1,4 @@
-from file import FileSettings
+from backend.file import FileSettings
 class Main:
 
     
