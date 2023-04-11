@@ -39,13 +39,13 @@ class Ui_product(object):
         self.stackedWidget.addWidget(self.page_3_product_number)
 
         self.retranslateUi(product)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(product)
 
     def retranslateUi(self, product):
         _translate = QtCore.QCoreApplication.translate
         product.setWindowTitle(_translate("product", "Form"))
-        self.pushButton_product_type.setText(_translate("product", "ürün typr"))
+        self.pushButton_product_type.setText(_translate("product", "ürün type"))
         self.pushButton_2_product_color.setText(_translate("product", "ürün rengi"))
         self.pushButton_3_product_number.setText(_translate("product", "ürün adedi "))
 
