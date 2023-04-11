@@ -1,1 +1,1 @@
-deneme.py de kaldım. diğer seçenekler ayarlanacak!
+deneme.py 90 satırda kaldım
