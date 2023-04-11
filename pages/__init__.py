@@ -1,2 +1,2 @@
-from .login import Login
-from .mypages import MyPage
+from .login import LoginPage
+# from .mypages import MyPage
