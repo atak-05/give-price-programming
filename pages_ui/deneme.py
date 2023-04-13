@@ -133,7 +133,6 @@ class Ui_product(object):
         product_name = self.product_name
         print("3.adım da product: " + product_name)
         print("3.adım buton adı " +self.color_name)
-        
         numbers = self.get_number_for_product(product_name)
         for number in numbers:
             number_button = QtWidgets.QPushButton(str(number))
@@ -145,58 +144,24 @@ class Ui_product(object):
         self.button2.setFixedSize(70,30)
         self.button2.clicked.connect(self.go_back)
         self.number_layout.addWidget(self.button2)     
-        self.button2.clicked.connect(self.go_back)
-
-       
-
         
-        # self.button2 = QtWidgets.QPushButton("<-- geri", self.page_2_product_color)
-        # # self.button2.setGeometry(QtCore.QRect(10, 10, 75, 23))
-        # self.button2.setFixedSize(70,30)
-        # self.number_layout.addWidget(self.button2)
-        # self.button2.clicked.connect(self.go_back)
-            
-        
-         # Create a horizontal layout for the color and back buttons
+        # Create a horizontal layout for the color and back buttons
         self.number_button_layout = QtWidgets.QHBoxLayout()
         self.number_button_layout.addWidget(self.button2)
         # Add the color buttons and the horizontal layout to the color layout
         self.number_layout.addLayout(self.number_button_layout)
-        
         self.stackedWidget.setCurrentIndex(2)
         
-        # color_name = button.objectName()
-        # product_name = button.objectName()
-        # # Clear any existing number buttons from the number page
-        # for number_button in self.page_3_product_number.findChildren(QtWidgets.QPushButton):
-        #     self.number_layout.removeWidget(number_button)
-        #     number_button.deleteLater()
 
-        # # Get the numbers for the selected product and color, and create a QPushButton for each number
-        # numbers = self.get_numbers_for_product_color(product_name, color_name)
-        # for number in numbers:
-        #     number_button = QtWidgets.QPushButton(str(number))
-        #     number_button.setObjectName(str(number))
-        #     self.number_layout.addWidget(number_button)
-        #     print("3.adım  "+number_button.objectName())
-
-        # self.button3 = QtWidgets.QPushButton("<-- geri", self.page_3_product_number)
-        # self.button3.setFixedSize(70,30)
-        # self.number_layout.addWidget(self.button3)
-        # self.button3.clicked.connect(self.go_back)
-        # self.stackedWidget.setCurrentIndex(2)
-
-            
+    
             
             
      #​‌‍‌⁡⁢⁢⁡⁣⁣⁢...............................................⁡  ⁡​ 
     def go_back(self):
-        # Get the current index of the stacked widget
         current_index = self.stackedWidget.currentIndex()
-        
-        # If the current index is 0, there is no page to go back to
         self.stackedWidget.setCurrentIndex(current_index - 1)
         self.number_layout.removeWidget(self.button2)
+        
         
         
     def get_colors_for_product(self,product_name):
