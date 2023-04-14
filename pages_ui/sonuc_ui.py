@@ -15,20 +15,42 @@ class Ui_Sonuc_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(400, 300)
-        self.label_sonuc = QtWidgets.QLabel(Form)
-        self.label_sonuc.setGeometry(QtCore.QRect(90, 100, 231, 61))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        self.label_sonuc.setFont(font)
-        self.label_sonuc.setObjectName("label_sonuc")
-
+               
+        # Label genişlik ve yükseklik değerlerini belirle
+        label_width = 100
+        label_height = 30
+        
+        # Form genişlik ve yükseklik değerlerini al
+        form_width = Form.frameGeometry().width()
+        form_height = Form.frameGeometry().height()
+        
+        # X ve Y koordinatlarını hesapla
+        x = int((form_width - label_width) / 2)
+        y = int((form_height)-200)
+        
+        labels=["label_sonuc","label_bilgi"]
+        children = Form.children()
+        label_count = sum([isinstance(child, QtWidgets.QLabel) for child in children])
+        for i in labels:
+            setattr(self, i, QtWidgets.QLabel(Form))
+            getattr(self, i).setGeometry(QtCore.QRect(x, y, label_width, label_height))
+            font = QtGui.QFont()
+            font.setPointSize(15)
+            getattr(self, i).setFont(font)
+            getattr(self, i).setObjectName(i)
+            y += 70
+        
+        
+    
+        
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_sonuc.setText(_translate("Form", "SONUC :"))
+        self.label_sonuc.setText(_translate("Form", "SONUC "))
+        self.label_bilgi.setText(_translate("Form", "Yok"))
 
 
 if __name__ == "__main__":

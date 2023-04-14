@@ -1,1 +1,5 @@
-deneme.py 90 satırda kaldım
+## You should download them
+
+python -m venv env
+python
+PyQt5

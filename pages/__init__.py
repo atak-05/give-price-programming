@@ -1,2 +1,5 @@
 from .login import LoginPage
-# from .mypages import MyPage
+from .product import ProductPage
+from .sonuc import SonucPage
+
+

@@ -24,3 +24,5 @@ class LoginPage(QWidget):
             self.anasayfa_ac.show()
         else:
             QMessageBox.warning(self, 'Hata', 'Kullanıcı adı veya şifre hatalı.')
+
+    

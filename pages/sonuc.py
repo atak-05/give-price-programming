@@ -7,3 +7,4 @@ class SonucPage(QWidget):
         super().__init__()
         self.sonuc  = Ui_Sonuc_Form ()
         self.sonuc.setupUi(self)
+       

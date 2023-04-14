@@ -11,6 +11,7 @@ class Ui_product(object):
         self.stackedWidget.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.stackedWidget.setObjectName("stackedWidget")
         self.product_name = None
+        self.urun_listesi = {}
         self.color_name = None
         self.number_button =None
         self.on_product_type_button_clicked = on_product_type_button_clicked
@@ -18,9 +19,14 @@ class Ui_product(object):
         # ⁡⁢⁢⁢Product type page---------------------------------------------------------------------------------------⁡
         self.page_product_type = QtWidgets.QWidget()
         self.page_product_type.setObjectName("page_product_type")
-        self.h_layout = QtWidgets.QHBoxLayout(self.page_product_type)
+        self.h_layout = QtWidgets.QVBoxLayout(self.page_product_type)
         self.h_layout.setContentsMargins(0, 0, 0, 0)
         self.h_layout.setSpacing(2)
+        self.label = QtWidgets.QLabel(self.page_product_type)
+        self.label.setText("Please choose the type of product")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setFixedHeight(40)
+        self.h_layout.addWidget(self.label)
 
         # Create QPushButton for each product in the product list and add it to the layout
         for urun in urun_listesi:
@@ -47,16 +53,6 @@ class Ui_product(object):
         # Set layout for the product color page and add it to the stacked widget
         self.page_2_product_color.setLayout(self.color_layout)
         self.stackedWidget.addWidget(self.page_2_product_color)
-      
-        # for urun in urun_listesi:
-        #     button = QtWidgets.QPushButton(urun)
-        #     button.setObjectName(urun)
-        #     self.h_layout.addWidget(button)
-        #     print("1.adım  "+button.objectName())
-        # for button in self.page_product_type.findChildren(QtWidgets.QPushButton):
-        #     button.clicked.connect(self.on_product_type_button_clicked)
-
-
 
         # ⁡⁣⁣⁢Product number page************************************************⁡
         self.page_3_product_number = QtWidgets.QWidget()
@@ -81,132 +77,6 @@ class Ui_product(object):
         
         
     
-    # def on_product_type_button_clicked(self):
-    #     button = self.page_product_type.sender()
-    #     self.product_name = button.objectName()
-
-    #     # Clear any existing color buttons from the color page
-    #     for color_button in self.page_2_product_color.findChildren(QtWidgets.QPushButton):
-    #         self.color_layout.removeWidget(color_button)
-    #         color_button.deleteLater()
-    #     # Clear any existing number buttons from the number page
-    #     for number_button in self.page_3_product_number.findChildren(QtWidgets.QPushButton):
-    #         self.number_layout.removeWidget(number_button)
-    #         number_button.deleteLater()
-            
-          
-        
-    #     # Get the colors for the selected product and create a QPushButton for each color
-    #     colors = self.get_colors_for_product(self.product_name)
-    #     for color in colors:
-    #         color_button = QtWidgets.QPushButton(color)
-    #         color_button.setObjectName(color)
-    #         self.color_layout.addWidget(color_button)
-    #         print("2.adım  "+color_button.objectName())
-    #         color_button.clicked.connect(lambda checked, color_name=color: self.on_product_color_button_clicked(color_name))
-
-        
-        
-        
-    #     self.button2 = QtWidgets.QPushButton("<-- geri", self.page_2_product_color)
-    #     # self.button2.setGeometry(QtCore.QRect(10, 10, 75, 23))
-    #     self.button2.setFixedSize(70,30)
-    #     self.color_layout.addWidget(self.button2)
-    #     self.button2.clicked.connect(self.go_back)
-        
-    #      # Create a horizontal layout for the color and back buttons
-    #     self.color_button_layout = QtWidgets.QHBoxLayout()
-    #     self.color_button_layout.addWidget(self.button2)
-    #     # Add the color buttons and the horizontal layout to the color layout
-    #     self.color_layout.addLayout(self.color_button_layout)
-        
-    #     self.stackedWidget.setCurrentIndex(1)
-        
-    # #   function is result for clicked product type button   ⁡​
-    # def on_product_color_button_clicked(self,number_button=None):
-           
-    #     for i in reversed(range(self.number_layout.count())):
-    #         widgetToRemove = self.number_layout.itemAt(i).widget()
-    #         if widgetToRemove is not None:
-    #             widgetToRemove.setParent(None)
-    #     button = self.page_2_product_color.sender()
-    #     self.color_name = button.objectName()
-    #     product_name = self.product_name
-    #     print("3.adım da product: " + product_name)
-    #     print("3.adım buton adı " +self.color_name)
-    #     numbers = self.get_number_for_product(product_name)
-    #     for number in numbers:
-    #         self.number_button = QtWidgets.QPushButton(str(number))
-    #         self.number_button.setObjectName(str(number))
-    #         self.number_button.setMinimumWidth(100)
-    #         self.number_layout.addWidget(self.number_button)
-    #         print("3.adım  "+self.number_button.objectName())
-    #         self.number_button.clicked.connect(lambda checked, number_name=number: self.on_number_button_clicked(number_name))
-
-    #     self.button2 = QtWidgets.QPushButton("<-- geri", self.page_2_product_color)
-    #     self.button2.setFixedSize(70,30)
-    #     self.button2.clicked.connect(self.go_back)
-    #     self.number_layout.addWidget(self.button2)     
-        
-    #     # Create a horizontal layout for the color and back buttons
-    #     self.number_button_layout = QtWidgets.QHBoxLayout()
-    #     self.number_button_layout.addWidget(self.button2)
-    #     # Add the color buttons and the horizontal layout to the color layout
-    #     self.number_layout.addLayout(self.number_button_layout)
-    #     self.stackedWidget.setCurrentIndex(2)
-        
-    # #​‌‍‌⁡⁢⁢⁡⁣⁣⁢...............................................⁡  ⁡​ 
-
-    # def on_number_button_clicked(self,number_name=None):
-    #     number_button = self.page_3_product_number.sender()
-    #     self.number_name = number_button.objectName()
-    #     print(number_name)
-    #     self.result_price(self.color_name,self.product_name,self.number_name)
-        
-        
-        
-    #  #​‌‍‌⁡⁢⁢⁡⁣⁣⁢...............................................⁡  ⁡​ 
-    # def go_back(self):
-    #     current_index = self.stackedWidget.currentIndex()
-    #     self.stackedWidget.setCurrentIndex(current_index - 1)
-    #     self.number_layout.removeWidget(self.button2)
-        
-       
-        
-    # def get_colors_for_product(self,product_name):
-    #     color =[]
-    #     for urun in urun_listesi:
-    #         print(product_name)
-    #         print(urun)
-    #         if product_name == urun:
-    #             for renk in urun_listesi[urun]['renkler'].keys():
-    #                 color.append(renk)
-    #             return color
-    #         else:
-    #              continue
-
-    # def get_number_for_product(self,product_name):
-    #     number=[]
-    #     for urun in urun_listesi:
-    #         print(product_name)
-    #         print(urun)
-    #         if product_name == urun:
-    #             for renk in urun_listesi[urun]['adet']:
-    #                 number.append(renk)
-    #             return number
-    #         else:
-    #              continue
-    # def result_price(self,color_name,product_name,number):
-        
-    #     color_name=self.color_name
-    #     product_name = self.product_name
-    #     number = int(self.number_name)
-       
-    #     product_price = int(urun_listesi[product_name]['renkler'][color_name])
-    #     self.total_price = product_price*number
-    #     print(product_price)
-    #     print(self.total_price)
-
     
     
         # Do something with the product name, such as showing the next page for selecting colors
@@ -214,13 +84,8 @@ class Ui_product(object):
         _translate = QtCore.QCoreApplication.translate
         product.setWindowTitle(_translate("product", "Form"))
  
-urun_adedi = [1,5,10,20,50,100]
-urun_listesi = {
-                    "kalem": {"renkler": {"mavi": 3, "siyah": 5, "kırmızı": 4}, "fiyat": None,"adet":{1,5,10,20,50,100}},
-                    "defter": {"renkler": {"sarı": 8, "pembe": 10, "yeşil": 9}, "fiyat": None,"adet":{1,5,10,20,50,100}},
-                    "kalemlik": {"renkler": {"mor": 6, "turuncu": 7, "beyaz": 8}, "fiyat": None,"adet":{1,5,10,20,50,100}},
-                    "bardak": {"renkler": {"şeffaf": 2, "mavi": 3, "kırmızı": 4}, "fiyat": None,"adet":{1,5,10,20,50,100}}
-                }
+# urun_adedi = [1,5,10,20,50,100]
+urun_listesi = {}
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
