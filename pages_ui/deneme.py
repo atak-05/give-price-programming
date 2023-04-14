@@ -1,9 +1,7 @@
 
 from PyQt5 import QtCore, QtWidgets
-
-
+from.sonuc_ui import Ui_Sonuc_Form
 class Ui_product(object):
-   
     def setupUi(self, product, urun_listesi):
         
         product.setObjectName("product")
@@ -14,6 +12,7 @@ class Ui_product(object):
         self.stackedWidget.setObjectName("stackedWidget")
         self.product_name = None
         self.color_name = None
+        self.number_button =None
         # ⁡⁢⁢⁢Product type page---------------------------------------------------------------------------------------⁡
         self.page_product_type = QtWidgets.QWidget()
         self.page_product_type.setObjectName("page_product_type")
@@ -77,6 +76,9 @@ class Ui_product(object):
         # Connect signals and slots
         # self.retranslateUi(product)
         QtCore.QMetaObject.connectSlotsByName(product)
+        
+        
+    #   function is result for clicked product type button   
     def on_product_type_button_clicked(self):
         button = self.page_product_type.sender()
         self.product_name = button.objectName()
@@ -118,12 +120,9 @@ class Ui_product(object):
         
         self.stackedWidget.setCurrentIndex(1)
         
-    #​‌‍‌⁡⁣⁣⁢Çalışılıyorr.................    
-    # 
-    # ⁡​
-    def on_product_color_button_clicked(self,color_name):
+    #   function is result for clicked product type button   ⁡​
+    def on_product_color_button_clicked(self,number_button=None):
            
-        
         for i in reversed(range(self.number_layout.count())):
             widgetToRemove = self.number_layout.itemAt(i).widget()
             if widgetToRemove is not None:
@@ -135,11 +134,13 @@ class Ui_product(object):
         print("3.adım buton adı " +self.color_name)
         numbers = self.get_number_for_product(product_name)
         for number in numbers:
-            number_button = QtWidgets.QPushButton(str(number))
-            number_button.setObjectName(str(number))
-            number_button.setMinimumWidth(100)
-            self.number_layout.addWidget(number_button)
-            print("3.adım  "+number_button.objectName())
+            self.number_button = QtWidgets.QPushButton(str(number))
+            self.number_button.setObjectName(str(number))
+            self.number_button.setMinimumWidth(100)
+            self.number_layout.addWidget(self.number_button)
+            print("3.adım  "+self.number_button.objectName())
+            self.number_button.clicked.connect(lambda checked, number_name=number: self.on_number_button_clicked(number_name))
+
         self.button2 = QtWidgets.QPushButton("<-- geri", self.page_2_product_color)
         self.button2.setFixedSize(70,30)
         self.button2.clicked.connect(self.go_back)
@@ -152,17 +153,23 @@ class Ui_product(object):
         self.number_layout.addLayout(self.number_button_layout)
         self.stackedWidget.setCurrentIndex(2)
         
+    #​‌‍‌⁡⁢⁢⁡⁣⁣⁢...............................................⁡  ⁡​ 
 
-    
-            
-            
+    def on_number_button_clicked(self,number_name=None):
+        number_button = self.page_3_product_number.sender()
+        self.number_name = number_button.objectName()
+        print(number_name)
+        self.result_price(self.color_name,self.product_name,self.number_name)
+        
+        
+        
      #​‌‍‌⁡⁢⁢⁡⁣⁣⁢...............................................⁡  ⁡​ 
     def go_back(self):
         current_index = self.stackedWidget.currentIndex()
         self.stackedWidget.setCurrentIndex(current_index - 1)
         self.number_layout.removeWidget(self.button2)
         
-        
+       
         
     def get_colors_for_product(self,product_name):
         color =[]
@@ -187,6 +194,19 @@ class Ui_product(object):
                 return number
             else:
                  continue
+    def result_price(self,color_name,product_name,number):
+        
+        color_name=self.color_name
+        product_name = self.product_name
+        number = int(self.number_name)
+       
+        product_price = int(urun_listesi[product_name]['renkler'][color_name])
+        self.total_price = product_price*number
+        print(product_price)
+        print(self.total_price)
+
+    
+    
         # Do something with the product name, such as showing the next page for selecting colors
     def retranslateUi(self, product):
         _translate = QtCore.QCoreApplication.translate
