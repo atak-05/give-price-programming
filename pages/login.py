@@ -18,7 +18,7 @@ class LoginPage(QWidget):
     def check_login(self):
         username = self.loginform.lineEdit_username.text()
         password = self.loginform.lineEdit_password.text()
-        if username == '' and password == '':
+        if (username == '' or 'admin') and (password == '' or '1234' ):
             QMessageBox.information(self, 'Başarılı', 'Giriş başarılı.')
             self.close()
             self.anasayfa_ac.show()

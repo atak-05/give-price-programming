@@ -22,6 +22,7 @@ class Ui_product(object):
         self.h_layout = QtWidgets.QVBoxLayout(self.page_product_type)
         self.h_layout.setContentsMargins(0, 0, 0, 0)
         self.h_layout.setSpacing(2)
+        #Product type Label
         self.label = QtWidgets.QLabel(self.page_product_type)
         self.label.setText("Please choose the type of product")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
@@ -54,7 +55,7 @@ class Ui_product(object):
         self.page_2_product_color.setLayout(self.color_layout)
         self.stackedWidget.addWidget(self.page_2_product_color)
 
-        # ⁡⁣⁣⁢Product number page************************************************⁡
+        # Product Number Page---------------------------------------------------------------------------------------⁡
         self.page_3_product_number = QtWidgets.QWidget()
         self.page_3_product_number.setObjectName("page_3_product_number")
         self.number_layout = QtWidgets.QVBoxLayout()

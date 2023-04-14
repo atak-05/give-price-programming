@@ -49,7 +49,7 @@ class Ui_Sonuc_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_sonuc.setText(_translate("Form", "SONUC "))
+        self.label_sonuc.setText(_translate("Form", "YOUR SUM PRICE"))
         self.label_bilgi.setText(_translate("Form", "Yok"))
 
 
