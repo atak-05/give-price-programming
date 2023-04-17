@@ -15,6 +15,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(400, 300)
+        Form.setStyleSheet("border-image: url(:/images/background.png);\n")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(76, 80, 71, 20))
         self.label.setObjectName("label")

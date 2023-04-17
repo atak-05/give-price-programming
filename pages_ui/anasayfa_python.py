@@ -23,6 +23,10 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(90, 210, 391, 71))
         self.label.setObjectName("label")
+        
+        
+        
+        
         self.fiyat_al = QtWidgets.QPushButton(self.centralwidget)
         self.fiyat_al.setGeometry(QtCore.QRect(480, 220, 191, 41))
         self.fiyat_al.setObjectName("fiyat_al")
