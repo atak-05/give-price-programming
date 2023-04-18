@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import *
 from pages_ui.product_python import Ui_product
+from pages_ui.product_new import Ui_product_Product
 from pages_ui.sonuc_ui import Ui_Sonuc_Form
 from .sonuc import SonucPage
 # from pages_ui.product_python import Ui_product
@@ -17,7 +18,7 @@ class ProductPage(QWidget):
                     "bardak": {"renkler": {"şeffaf": 2, "mavi": 3, "kırmızı": 4}, "fiyat": None,"adet":{1,5,10,20,50,100}}
                 }
         self.sonuc_page =SonucPage()
-        self.productform = Ui_product()
+        self.productform = Ui_product_Product()
         self.productform.setupUi(self,self.urun_listesi,self.on_product_type_button_clicked)
         self.sonuc_ui = Ui_Sonuc_Form()
         
