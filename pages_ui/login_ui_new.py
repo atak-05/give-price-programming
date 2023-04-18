@@ -41,9 +41,21 @@ class Ui_Form(object):
 "background:white;\n"
 "}\n"
 "\n"
+"#button_create_user{\n"
+"background:transparent;\n"
+"font-size:15px;\n"
+"border: 2px solid #000;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
+"#button_create_user:hover{\n"
+"background:rgba(236, 197, 233, 0.5);\n"
+"}\n"
+"\n"
 "QToolButton{\n"
 "background:#ecc5e9;\n"
 "border-radius:10px;\n"
+"padding: 3px 3px;\n"
 "\n"
 "}\n"
 "QLabel{\n"
@@ -73,6 +85,11 @@ class Ui_Form(object):
         self.pushButton_login = QtWidgets.QPushButton(Form)
         self.pushButton_login.setGeometry(QtCore.QRect(360, 380, 211, 51))
         self.pushButton_login.setObjectName("pushButton_login")
+        self.button_create_user = QtWidgets.QPushButton("Create Account",Form)
+        self.button_create_user.setGeometry(QtCore.QRect(180, 385, 311, 20))
+        self.button_create_user.setFixedSize(150,25)
+        self.button_create_user.setStyleSheet("QPushButton {border-radius: 30px;}")
+        self.button_create_user.setObjectName("button_create_user")
         self.toolButton = QtWidgets.QToolButton(Form)
         self.toolButton.setGeometry(QtCore.QRect(300, 30, 121, 111))
         self.toolButton.setText("")

@@ -39,12 +39,17 @@ class ProductPage(QWidget):
         
         colors =self.get_colors_for_product(self.product_name)
         #! You can find label of product type where product_python.py
-        # Add a label to the color page
-        self.label = QtWidgets.QLabel(self.productform.page_2_product_color)
-        self.label.setText("Please choose the color of product")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setFixedHeight(40)
-        self.productform.color_layout.addWidget(self.label)
+        # Add a label to the color page if it doesn't exist
+        if not hasattr(self, 'label'):
+            self.label = QtWidgets.QLabel(self.productform.page_2_product_color)
+            self.label.setAlignment(QtCore.Qt.AlignCenter)
+            self.label.setFixedHeight(40)
+            self.productform.color_layout.addWidget(self.label)
+            # Set the text of the label
+            self.label.setText("Lütfen ürün rengini seçiniz!!")
+        
+        
+        
         
         for color in colors:
             color_button = QtWidgets.QPushButton(color)
@@ -59,9 +64,10 @@ class ProductPage(QWidget):
         self.button2 = QtWidgets.QPushButton("<-- geri", self.productform.page_2_product_color)
         # self.button2.setGeometry(QtCore.QRect(10, 10, 75, 23))
         self.button2.setFixedSize(100,35)
-        self.button2.setStyleSheet("background-color: #30d5c8; color: white;")
+        self.button2.setStyleSheet("background-color: #ecc5e9; color: black;")
+        self.button2.setStyleSheet("QPushButton:hover { background-color: white; }")
         self.productform.color_layout.addWidget(self.button2)
-        self.button2.clicked.connect(self.go_back)
+        
          # Create a horizontal layout for the color and back buttons
         color_button_layout = QtWidgets.QHBoxLayout()
         color_button_layout.addWidget(self.button2)
@@ -69,7 +75,7 @@ class ProductPage(QWidget):
         self.productform.color_layout.addLayout(color_button_layout)
         
         self.productform.stackedWidget.setCurrentIndex(1)
-       
+        self.button2.clicked.connect(self.go_back)
         
     #===========================================================================================#        
     def get_colors_for_product(self,product_name):
@@ -101,7 +107,7 @@ class ProductPage(QWidget):
         
          # Add a label to the number page
         self.label = QtWidgets.QLabel(self.productform.page_3_product_number)
-        self.label.setText("Please choose the number of product")
+        self.label.setText("Lütfen ürün adedini seçiniz!!")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setFixedHeight(40)
         self.productform.number_layout.addWidget(self.label)
@@ -114,12 +120,13 @@ class ProductPage(QWidget):
             self.productform.number_layout.addWidget(self.number_button)
             print("3.adım  "+self.number_button.objectName())
             self.number_button.clicked.connect(lambda checked, number_name=number: self.on_number_button_clicked(number_name))
-
-        self.button2 = QtWidgets.QPushButton("<-- geri", self.productform.page_2_product_color)
-        self.button2.setFixedSize(100,35)
-        self.button2.setStyleSheet("background-color: #30d5c8; color: white;")
-        self.button2.clicked.connect(self.go_back)
-        self.productform.number_layout.addWidget(self.button2)     
+        if not hasattr(self, 'button2'):
+            self.button2 = QtWidgets.QPushButton("<-- geri", self.productform.page_2_product_color)
+            self.button2.setFixedSize(100,35)
+            self.button2.setStyleSheet("background-color: #ecc5e9; color: black;")
+            self.button2.setStyleSheet("QPushButton:hover { background-color: white; }")
+            self.button2.clicked.connect(self.go_back)
+            self.productform.number_layout.addWidget(self.button2)     
         
         # Create a horizontal layout for the color and back buttons
         self.number_button_layout = QtWidgets.QHBoxLayout()
@@ -165,6 +172,6 @@ class ProductPage(QWidget):
     def result_page(self):
         self.close()
         total = str(self.total_price)
-        self.sonuc_page.sonuc.label_bilgi.setText(total)
+        self.sonuc_page.sonuc.label_bilgi.setText( total+ " ₺")
         self.sonuc_page.show()
       

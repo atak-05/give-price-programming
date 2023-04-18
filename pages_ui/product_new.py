@@ -51,12 +51,14 @@ class Ui_product_Product(object):
         # ⁡⁢⁢⁢Product type page---------------------------------------------------------------------------------------⁡
         self.page_product_type = QtWidgets.QWidget()
         self.page_product_type.setObjectName("page_product_type")
+        
         self.h_layout = QtWidgets.QVBoxLayout(self.page_product_type)
         self.h_layout.setContentsMargins(0, 0, 0, 0)
         self.h_layout.setSpacing(2)
         #Product type Label
         self.label = QtWidgets.QLabel(self.page_product_type)
-        self.label.setText("Please choose the type of product")
+        self.label.setText("Lütfen ürün tipini seçiniz")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
         # self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setFixedHeight(40)
         self.h_layout.addWidget(self.label)
