@@ -16,14 +16,15 @@
 #         # Widget'a layout'u ekle
 #         self.setLayout(layout)
 from PyQt5.QtWidgets import *
-from pages_ui.anasayfa_python import Ui_MainWindow
+# from pages_ui.anasayfa_python import Ui_MainWindow
 from .product import ProductPage
+from pages_ui.anasayfa_new import  Ui_Form_Homepage
 
 
-class AnapencerePage(QMainWindow):
+class AnapencerePage(QWidget):
     def __init__(self):
         super().__init__()
-        self.anapencereform = Ui_MainWindow()
+        self.anapencereform =  Ui_Form_Homepage()
         self.anapencereform.setupUi(self)
         self.product_ac = ProductPage()
         self.anapencereform.fiyat_al.clicked.connect(self.fiyat_al)
