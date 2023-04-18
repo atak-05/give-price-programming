@@ -58,10 +58,10 @@ class ProductPage(QWidget):
         
         self.button2 = QtWidgets.QPushButton("<-- geri", self.productform.page_2_product_color)
         # self.button2.setGeometry(QtCore.QRect(10, 10, 75, 23))
-        self.button2.setFixedSize(70,30)
+        self.button2.setFixedSize(100,35)
+        self.button2.setStyleSheet("background-color: #30d5c8; color: white;")
         self.productform.color_layout.addWidget(self.button2)
         self.button2.clicked.connect(self.go_back)
-        
          # Create a horizontal layout for the color and back buttons
         color_button_layout = QtWidgets.QHBoxLayout()
         color_button_layout.addWidget(self.button2)
@@ -116,7 +116,8 @@ class ProductPage(QWidget):
             self.number_button.clicked.connect(lambda checked, number_name=number: self.on_number_button_clicked(number_name))
 
         self.button2 = QtWidgets.QPushButton("<-- geri", self.productform.page_2_product_color)
-        self.button2.setFixedSize(70,30)
+        self.button2.setFixedSize(100,35)
+        self.button2.setStyleSheet("background-color: #30d5c8; color: white;")
         self.button2.clicked.connect(self.go_back)
         self.productform.number_layout.addWidget(self.button2)     
         

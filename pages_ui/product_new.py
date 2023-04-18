@@ -37,10 +37,9 @@ class Ui_product_Product(object):
 "color:white;\n"
 "}\n"
 "")
-        product.setObjectName("product")
-        product.resize(500, 400)
+        
         self.stackedWidget = QtWidgets.QStackedWidget(product)
-        self.stackedWidget.setGeometry(QtCore.QRect(10, 0, 480,400))
+        self.stackedWidget.setGeometry(QtCore.QRect(125, 50, 500,350))
         self.stackedWidget.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.stackedWidget.setObjectName("stackedWidget")
         self.product_name = None
@@ -58,7 +57,7 @@ class Ui_product_Product(object):
         #Product type Label
         self.label = QtWidgets.QLabel(self.page_product_type)
         self.label.setText("Please choose the type of product")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        # self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setFixedHeight(40)
         self.h_layout.addWidget(self.label)
 
