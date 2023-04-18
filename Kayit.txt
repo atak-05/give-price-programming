@@ -1,7 +1,4 @@
+Id: 1
+Kullanici adi: admin
+Sifre: 1234
 
-Id: 1
-Kullanici adi: bidik
-Sifre: 1234
-Id: 1
-Kullanici adi: atak
-Sifre: 1234

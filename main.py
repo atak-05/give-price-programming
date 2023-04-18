@@ -9,7 +9,8 @@
 #########################################################################################################################
 # Step 1: Install required libraries() / you can look for them where information.txt ####################################                      
 # Step 2: Run main.py                                                                ####################################                    
-# Step 3: And username = "admin" | ""(empty) and password ="1234" | "" (empty)       ####################################        
+# Step 3/1: And username = "admin" | ""(empty) and password ="1234" | "" (empty)     ####################################    
+# Step 3/2: You can create new account                                               ####################################      
 # Step 4: Choose product type                                                        ####################################       
 # Step 5: Choose product color                                                       ####################################      
 # Step 6: Choose product number                                                      ####################################       

@@ -24,24 +24,29 @@ class LoginPage(QWidget):
         password = self.loginform.password.text()
         self.users = {}
         self.file() 
-        print(self.users.keys())        
-        if username ==  'admin' or (username in self.users['Kullanici adi'] and self.users['Sifre'] == password):
-            msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.Information)
-            msg.setText("<html><b><font color='black'>Giriş Başarılı!</font></b></html>")
-            msg.setWindowTitle("Başarılı")
-            msg.setStyleSheet("QMessageBox { background-color: white; }")
-            msg.setStyleSheet("background-color:#ecc5e9")
-            msg.exec_()
-            self.close()
-            self.anasayfa_ac = AnapencerePage()
-            self.anasayfa_ac.show()
-        else:
-            QMessageBox.warning(self, 'Hata', 'Kullanıcı adı veya şifre hatalı.')
+        print(self.users.keys())   
+        if self.users != None :     
+            if username ==  'admin' or (username in self.users['Kullanici adi'] and self.users['Sifre'] == password):
+                msg = QtWidgets.QMessageBox()
+                msg.setIcon(QtWidgets.QMessageBox.Information)
+                msg.setText("<html><b><font color='black'>Giriş Başarılı!</font></b></html>")
+                msg.setWindowTitle("Başarılı")
+                msg.setStyleSheet("QMessageBox { background-color: white; }")
+                msg.setStyleSheet("background-color:#ecc5e9")
+                msg.exec_()
+                self.close()
+                self.anasayfa_ac = AnapencerePage()
+                self.anasayfa_ac.show()
+            else:
+                QMessageBox.warning(self, 'Hata', 'Kullanıcı adı veya şifre hatalı.')
+        else : 
+            QMessageBox.warning(self, 'Hata', 'Lütfen bir kullanıcı oluşturun!')
     def create_account(self):
         from .createAccount import CreateAccount
         self.createAccount = CreateAccount()
+        self.close()
         self.createAccount.show()
+        
     def file(self):
         self.users = {}
         with open("Kayit.txt", "r") as file:

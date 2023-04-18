@@ -18,7 +18,7 @@ class Ui_Form_Create_User(object):
         palette.setBrush(QtGui.QPalette.Background, QtGui.QBrush(pixmap))
         Form.setPalette(palette)
         Form.setObjectName("Form")
-        Form.resize(750, 450)
+        Form.resize(770, 450)
         Form.setStyleSheet("*{\n"
 "font-family:century gothic;\n"
 "font-size:30px;\n"
@@ -59,6 +59,20 @@ class Ui_Form_Create_User(object):
 "border-radius:15px;\n"
 "background:white;\n"
 "}\n"
+"\n"
+"#button2:hover{\n"
+"color:#333;\n"
+"border-radius:15px;\n"
+"background:rgba(236, 197, 233, 0.5);\n"
+"}\n"
+"\n"
+"#button2{\n"
+"background:transparent;\n"
+"font-size:15px;\n"
+"border: 2px solid #000;\n"
+"border-radius: 15px;\n"
+"}\n"
+"\n"
 "QLineEdit{\n"
 "color:#ecc5e9;\n"
 "border:none;\n"
@@ -89,10 +103,14 @@ class Ui_Form_Create_User(object):
         self.label_title = QtWidgets.QLabel(Form)
         self.label_title.setGeometry(QtCore.QRect(120, 40, 511, 41))
         self.label_title.setObjectName("label_title")
+        self.button2 = QtWidgets.QPushButton("geri", Form)
+        self.button2.setObjectName("button2")
 
+        # self.button2.setGeometry(QtCore.QRect(10, 10, 75, 23))
+        self.button2.setFixedSize(80,25)
+        self.button2.setGeometry(QtCore.QRect(130, 400, 111, 31))
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))

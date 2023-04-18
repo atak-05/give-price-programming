@@ -8,12 +8,13 @@ class CreateAccount(QWidget):
         self.create  = Ui_Form_Create_User ()
         self.create.setupUi(self)
         self.create.pushButton_create.clicked.connect(self.loginpage)
+        self.create.button2.clicked.connect(self.go_back)
     def loginpage(self):
         from .login import LoginPage
         self.login = LoginPage()
         self.save_user()
         self.login.show()
-        self.close()
+        self.create.close()
         print("login page")
         
     def save_user(self):
@@ -37,4 +38,10 @@ class CreateAccount(QWidget):
                 file.write(f"Id: {user_id}\n")
                 file.write(f"Kullanici adi: {user_dict['username']}\n")
                 file.write(f"Sifre: {user_dict['password']}\n")
-                    
+    def go_back(self):
+        from .login import LoginPage
+        self.login = LoginPage()
+        self.close()
+        self.login.show()
+        
+ 
