@@ -12,6 +12,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(object):
     def setupUi(self, Form):
+        pixmap = QtGui.QPixmap("pages_ui/image/background-2.png")
+        palette = Form.palette()
+        palette.setBrush(QtGui.QPalette.Background, QtGui.QBrush(pixmap))
+        Form.setPalette(palette)
         Form.setObjectName("Form")
         Form.resize(750, 450)
         Form.setStyleSheet("*{\n"
@@ -24,7 +28,7 @@ class Ui_Form(object):
 "}\n"
 "\n"
 "#Form{\n"
-"background:url(pages_ui/image/background-2.png);\n"
+"background:url('pages_ui/image/background-2.png');\n"
 "}\n"
 "QPushButton{\n"
 "background:#ecc5e9;\n"
