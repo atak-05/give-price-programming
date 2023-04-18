@@ -25,7 +25,7 @@ class Ui_Form_Homepage(object):
 "}\n"
 "QFrame{\n"
 "border-radius:30px;\n"
-"background:#6495ed\n"
+"background:rgba(236, 197, 233, 0.5);n"
 "}\n"
 "\n"
 "QPushButton{\n"

@@ -42,11 +42,11 @@ class ProductPage(QWidget):
         # Add a label to the color page if it doesn't exist
         if not hasattr(self, 'label'):
             self.label = QtWidgets.QLabel(self.productform.page_2_product_color)
-            self.label.setAlignment(QtCore.Qt.AlignCenter)
-            self.label.setFixedHeight(40)
-            self.productform.color_layout.addWidget(self.label)
+            # self.label.setAlignment(QtCore.Qt.AlignCenter)
+            # self.productform.color_layout.addWidget(self.label)
             # Set the text of the label
-            self.label.setText("Lütfen ürün rengini seçiniz!!")
+            self.label.setGeometry(QtCore.QRect(200, 25, 400,100))
+            self.label.setText("Lütfen ürün rengini seçiniz")
         
         
         
@@ -54,6 +54,7 @@ class ProductPage(QWidget):
         for color in colors:
             color_button = QtWidgets.QPushButton(color)
             color_button.setObjectName(color)
+            color_button.setFixedSize(150, 170)
             self.productform.color_layout.addWidget(color_button)
             print("2.adım  "+color_button.objectName())
             color_button.clicked.connect(lambda checked, color_name=color: self.on_product_color_button_clicked(color_name))
@@ -61,21 +62,21 @@ class ProductPage(QWidget):
         
         
         
-        self.button2 = QtWidgets.QPushButton("<-- geri", self.productform.page_2_product_color)
-        # self.button2.setGeometry(QtCore.QRect(10, 10, 75, 23))
-        self.button2.setFixedSize(100,35)
-        self.button2.setStyleSheet("background-color: #ecc5e9; color: black;")
-        self.button2.setStyleSheet("QPushButton:hover { background-color: white; }")
-        self.productform.color_layout.addWidget(self.button2)
+        self.button3 = QtWidgets.QPushButton("<---", self.productform.page_2_product_color)
+        self.button3.setGeometry(QtCore.QRect(0, 360, 400,100))
+        self.button3.setFixedSize(80,40)
+        # self.button2.setStyleSheet("background-color: #ecc5e9; color: black;")
+        # self.button2.setStyleSheet("QPushButton:hover { background-color: white; }")
+        # self.productform.color_layout.addWidget(self.button2)
         
          # Create a horizontal layout for the color and back buttons
         color_button_layout = QtWidgets.QHBoxLayout()
-        color_button_layout.addWidget(self.button2)
+        # color_button_layout.addWidget(self.button2)
         # Add the color buttons and the horizontal layout to the color layout
         self.productform.color_layout.addLayout(color_button_layout)
         
         self.productform.stackedWidget.setCurrentIndex(1)
-        self.button2.clicked.connect(self.go_back)
+        self.button3.clicked.connect(self.go_back)
         
     #===========================================================================================#        
     def get_colors_for_product(self,product_name):
@@ -107,30 +108,32 @@ class ProductPage(QWidget):
         
          # Add a label to the number page
         self.label = QtWidgets.QLabel(self.productform.page_3_product_number)
-        self.label.setText("Lütfen ürün adedini seçiniz!!")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setFixedHeight(40)
-        self.productform.number_layout.addWidget(self.label)
+        self.label.setText("Lütfen ürün adedini seçiniz")
+        # self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setGeometry(QtCore.QRect(200, 25, 400,100))
+        # self.productform.number_layout.addWidget(self.label)
         
         numbers = self.get_number_for_product(self.product_name)
+        numbers.sort()
         for number in numbers:
             self.number_button = QtWidgets.QPushButton(str(number))
             self.number_button.setObjectName(str(number))
-            self.number_button.setMinimumWidth(100)
+            self.number_button.setFixedSize(100, 120)
             self.productform.number_layout.addWidget(self.number_button)
             print("3.adım  "+self.number_button.objectName())
             self.number_button.clicked.connect(lambda checked, number_name=number: self.on_number_button_clicked(number_name))
         if not hasattr(self, 'button2'):
-            self.button2 = QtWidgets.QPushButton("<-- geri", self.productform.page_2_product_color)
-            self.button2.setFixedSize(100,35)
+            self.button2 = QtWidgets.QPushButton("<--", self.productform.page_3_product_number)
+            self.button2.setGeometry(QtCore.QRect(0, 360, 400,100))
+            self.button2.setFixedSize(80,40)
             self.button2.setStyleSheet("background-color: #ecc5e9; color: black;")
             self.button2.setStyleSheet("QPushButton:hover { background-color: white; }")
             self.button2.clicked.connect(self.go_back)
-            self.productform.number_layout.addWidget(self.button2)     
+        #    self.productform.number_layout.addWidget(self.button2)     
         
         # Create a horizontal layout for the color and back buttons
         self.number_button_layout = QtWidgets.QHBoxLayout()
-        self.number_button_layout.addWidget(self.button2)
+        #self.number_button_layout.addWidget(self.button2)
         # Add the color buttons and the horizontal layout to the color layout
         self.productform.number_layout.addLayout(self.number_button_layout)
         self.productform.stackedWidget.setCurrentIndex(2)

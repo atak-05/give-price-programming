@@ -13,8 +13,8 @@ class CreateAccount(QWidget):
         from .login import LoginPage
         self.login = LoginPage()
         self.save_user()
+        self.close()
         self.login.show()
-        self.create.close()
         print("login page")
         
     def save_user(self):

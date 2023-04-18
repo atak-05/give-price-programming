@@ -18,13 +18,15 @@ class Ui_Form(object):
         Form.setPalette(palette)
         Form.setObjectName("Form")
         Form.resize(750, 450)
+        Form.setMinimumSize(750, 450)
+        Form.setMaximumSize(750, 450)
         Form.setStyleSheet("*{\n"
 "font-family:century gothic;\n"
 "font-size:24px;\n"
 "}\n"
 "QFrame{\n"
 "border-radius:15px;\n"
-"background:#6495ed\n"
+"background:rgba(236, 197, 233, 0.5);n"
 "}\n"
 "\n"
 "#Form{\n"
@@ -36,7 +38,7 @@ class Ui_Form(object):
 "\n"
 "}\n"
 "QPushButton:hover{\n"
-"color:#333;\n"
+"color:black;\n"
 "border-radius:15px;\n"
 "background:white;\n"
 "}\n"
@@ -44,7 +46,7 @@ class Ui_Form(object):
 "#button_create_user{\n"
 "background:transparent;\n"
 "font-size:15px;\n"
-"border: 2px solid #000;\n"
+"border-bottom: 2px solid #000;"
 "border-radius: 15px;\n"
 "}\n"
 "\n"
@@ -59,10 +61,10 @@ class Ui_Form(object):
 "\n"
 "}\n"
 "QLabel{\n"
-"color:white;\n"
+"color:black;\n"
 "}\n"
 "QLineEdit{\n"
-"color:#ecc5e9;\n"
+"color:black;\n"
 "border:none;\n"
 "border-bottom:2px solid #ecc5e9;;\n"
 "background:transparent;\n"
