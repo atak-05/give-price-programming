@@ -1,10 +1,3 @@
 Id: 1
 Kullanici adi: admin
 Sifre: 1234
-
-Id: 1
-Kullanici adi: cenk
-Sifre: 1234
-Id: 1
-Kullanici adi: cenk
-Sifre: 1234

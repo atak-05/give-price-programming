@@ -39,7 +39,7 @@ class Ui_Form_Create_User(object):
 "}\n"
 "QFrame{\n"
 "border-radius:15px;\n"
-"background:#6495ed;\n"
+"background:rgba(236, 197, 233, 0.5);n"
 "}\n"
 "#label_title{\n"
 "background:#ecc5e9;\n"
@@ -69,7 +69,6 @@ class Ui_Form_Create_User(object):
 "#button2{\n"
 "background:transparent;\n"
 "font-size:15px;\n"
-"border: 2px solid #000;\n"
 "border-radius: 15px;\n"
 "}\n"
 "\n"
@@ -103,7 +102,7 @@ class Ui_Form_Create_User(object):
         self.label_title = QtWidgets.QLabel(Form)
         self.label_title.setGeometry(QtCore.QRect(120, 40, 511, 41))
         self.label_title.setObjectName("label_title")
-        self.button2 = QtWidgets.QPushButton("geri", Form)
+        self.button2 = QtWidgets.QPushButton("<--", Form)
         self.button2.setObjectName("button2")
 
         # self.button2.setGeometry(QtCore.QRect(10, 10, 75, 23))
